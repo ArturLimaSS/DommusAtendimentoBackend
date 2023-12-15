@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\KanbanController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +29,15 @@ Route::controller(UserController::class)->group(function () {
 Route::controller(TeamController::class)->group(function () {
     Route::get('/team/{id}', 'show');
     Route::post('/team', 'create');
+});
+
+Route::controller(TicketController::class)->group(function(){
+    Route::post('/ticket', 'create');
+    Route::get('/ticket/{id}', 'index');
+    Route::get('/ticket', 'show');
+});
+
+
+Route::controller(KanbanController::class)->group(function(){
+    Route::get('/kanban/{id}', 'show');
 });

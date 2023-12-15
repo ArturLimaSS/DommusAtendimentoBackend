@@ -9,10 +9,18 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $table = 'ticket';
 
+    protected $fillable = [
+        'organization_id',
+        'requester_id',
+        'title',
+        'description',
+        'resposible_id',
+        'work_team_id',
+        'service_id',
+        'status_id',
+        'category_id',
+        'urgency_level'
+    ];
 }
